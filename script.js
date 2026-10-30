@@ -158,7 +158,9 @@
     cells = [];
     const W = comb.clientWidth, H = comb.clientHeight;
     const small = W < 420;
-    const cw = small ? 44 : 62, ch = cw * 1.1547, dx = cw + 4, dy = ch * 0.75 + 3;
+    const cw = small ? 44 : (W > 1500 ? 78 : 64), ch = cw * 1.1547, gap = small ? 3 : 4;
+    // exact pointy-top tiling: horizontal pitch = width + gap, vertical pitch = 3/4 height + gap * cos(30deg)
+    const dx = cw + gap, dy = ch * 0.75 + gap * 0.866;
     comb.style.setProperty('--cw', cw + 'px');
     comb.style.setProperty('--ch', ch + 'px');
     const cols = Math.ceil(W / dx) + 1, rows = Math.ceil(H / dy) + 1;
