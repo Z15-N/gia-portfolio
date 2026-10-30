@@ -22,7 +22,7 @@ Buzz is a bee chatbot in the bottom-right corner. A second bee flies around the 
 highlighted box: "the bee knows this page better than I do. Click it and try 'quiz me'. The honeycomb hides a few facts
 too."
 
-Buzz answers questions about me with keyword matching, remembers a visitor's name for the session, tells maths jokes,
+Buzz answers questions about me by scoring thirty-odd topics against the message (so "battle code", "Battlecode" and "the UNSW bot" all land in the same place), answers "tell me more" with a deeper reply on the last topic, remembers a visitor's name for the session, tells maths jokes,
 offers quick-reply chips (projects, quiz me, joke, help), and runs a three-question mental-arithmetic quiz with
 randomised numbers and a score. It runs entirely in the browser: no API calls, no tracking, and it never blocks
 navigation (Escape or the close button dismisses it).
