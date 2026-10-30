@@ -162,7 +162,11 @@
     comb.style.setProperty('--cw', cw + 'px');
     comb.style.setProperty('--ch', ch + 'px');
     const cols = Math.ceil(W / dx) + 1, rows = Math.ceil(H / dy) + 1;
-    const cx = W / 2, cy = H / 2, hole = small ? 110 : 150;
+    const cr = comb.getBoundingClientRect();
+    const av = document.getElementById('avatar').getBoundingClientRect();
+    const art = document.querySelector('.hero-art').getBoundingClientRect();
+    const cx = av.left + av.width / 2 - cr.left, cy = av.top + av.height / 2 - cr.top, hole = av.width * 0.62;
+    const ax0 = art.left - cr.left, ax1 = art.right - cr.left, ay0 = art.top - cr.top, ay1 = art.bottom - cr.top;
     const candidates = [];
     for (let r = 0; r < rows; r++) {
       for (let c = 0; c < cols; c++) {
@@ -174,7 +178,9 @@
         el.style.left = x + 'px'; el.style.top = y + 'px';
         comb.appendChild(el);
         cells.push({ el, x: x + cw / 2, y: y + ch / 2 });
-        const m = small ? 26 : 12; if (d > hole + 20 && x > m && x + cw < W - m && y > m && y + ch < H - m) candidates.push(cells.length - 1);
+        // facts live only in the portrait's half, fully inside it, clear of the hole
+        const m = small ? 26 : 4;
+        if (d > hole + 2 && x > ax0 + m && x + cw < ax1 - m && y > ay0 + m && y + ch < ay1 - m) candidates.push(cells.length - 1);
       }
     }
     // spread the fact cells out

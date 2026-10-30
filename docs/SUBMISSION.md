@@ -19,7 +19,7 @@ offers quick-reply chips (projects, quiz me, joke, help), and runs a three-quest
 randomised numbers and a score. It runs entirely in the browser: no API calls, no tracking, and it never blocks
 navigation (Escape or the close button dismisses it).
 
-The hero is a honeycomb: a field of hexagon cells generated in JavaScript that glow as the cursor passes, with eight
+The whole hero is a honeycomb: about two hundred hexagon cells generated in JavaScript that glow as the cursor passes, with a few
 cells holding facts about me (SAT Math 790, two AMC first prizes coached, and so on). The bee on the contact band
 wobbles and talks back when you poke it.
 

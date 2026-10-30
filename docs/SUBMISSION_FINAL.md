@@ -27,7 +27,7 @@ offers quick-reply chips (projects, quiz me, joke, help), and runs a three-quest
 randomised numbers and a score. It runs entirely in the browser: no API calls, no tracking, and it never blocks
 navigation (Escape or the close button dismisses it).
 
-The hero is a honeycomb: a field of hexagon cells generated in JavaScript that glow as the cursor passes, with eight
+The whole hero is a honeycomb: about two hundred hexagon cells generated in JavaScript that glow as the cursor passes, with a few
 cells holding facts about me (SAT Math 790, two AMC first prizes coached, and so on). The bee on the contact band
 wobbles and talks back when you poke it.
 
@@ -53,7 +53,7 @@ had only made with blocks. The project section shows screenshots of the original
 1. docs/screenshot-desktop-hero.jpg: desktop hero with the honeycomb and the cursor bee.
 2. docs/screenshot-desktop-buzz.jpg: Buzz open mid-quiz.
 3. docs/screenshot-desktop-projects.jpg: the Buzz project card with mBlock screenshots.
-4. docs/screenshot-mobile-hero.jpg: phone width, light mode.
+4. docs/screenshot-mobile-hero.jpg: phone width, dark mode.
 5. (take this) Amplify console: the gia-portfolio app with the main branch deployed and the amplifyapp.com URL visible.
 6. (take this) AWS Budgets: the zero-spend budget.
 
