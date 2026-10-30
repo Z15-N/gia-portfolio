@@ -8,17 +8,24 @@ A one-page portfolio: About Me, Tech Superpowers (skills), Projects & Achievemen
 JavaScript with no framework and no build step, so it loads fast and works on a phone. Light and dark themes follow
 the visitor's system setting.
 
-## The creative feature: Buzz
-Buzz is a bee chatbot that lives in the bottom-right corner, and a second bee flies across the hero (click it and the
-chat opens too). The visible hint sits in the hero in a highlighted box: "the bee in the corner knows this page better
-than I do. Click it and try 'quiz me'". Buzz answers questions about me with keyword matching, remembers a visitor's
-name for the session, tells maths jokes, offers quick-reply chips (projects, quiz me, joke, help), and runs a
-three-question mental-arithmetic quiz with randomised numbers and a score. It runs entirely in the browser: no API
-calls, no tracking, and it never blocks navigation (Escape or the close button dismisses it).
+## The creative feature: Buzz and the honeycomb
+Buzz is a bee chatbot in the bottom-right corner. A second bee flies around the hero and follows your cursor
+(on touch devices it flies a fixed path), and clicking either bee opens the chat. The visible hint sits in the hero in a
+highlighted box: "the bee knows this page better than I do. Click it and try 'quiz me'. The honeycomb hides a few facts
+too."
+
+Buzz answers questions about me with keyword matching, remembers a visitor's name for the session, tells maths jokes,
+offers quick-reply chips (projects, quiz me, joke, help), and runs a three-question mental-arithmetic quiz with
+randomised numbers and a score. It runs entirely in the browser: no API calls, no tracking, and it never blocks
+navigation (Escape or the close button dismisses it).
+
+The hero is a honeycomb: a field of hexagon cells generated in JavaScript that glow as the cursor passes, with eight
+cells holding facts about me (SAT Math 790, two AMC first prizes coached, and so on). The bee on the contact band
+wobbles and talks back when you poke it.
 
 Why a bee: Buzz started as a 615-block chatbot I built in mBlock (a Scratch-style block language) and published on
 mBlock Planet. Porting the same intents to JavaScript for this site was the first "real code" version of something I
-had only made with blocks.
+had only made with blocks. The project section shows screenshots of the original running in the mBlock editor.
 
 ## Design notes
 One warm theme (CSS variables, light and dark), one accent colour, inline SVG icons, a hexagon portrait and a

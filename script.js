@@ -141,7 +141,125 @@
   });
   // Clicking the flying bee opens Buzz too.
   const flyer = document.getElementById('flyer');
-  if (flyer) { flyer.style.pointerEvents = 'auto'; flyer.style.cursor = 'pointer'; flyer.addEventListener('click', open); }
+  if (flyer) { flyer.addEventListener('click', open); }
+})();
+
+// Honeycomb hero: a field of hex cells that glow near the cursor; a few hold facts.
+(function () {
+  const comb = document.getElementById('comb');
+  if (!comb) return;
+  const FACTS = [
+    ['790', 'SAT Math'], ['2', 'AMC firsts coached'], ['UTS', 'Bachelor of AI'], ['615', 'blocks in Buzz'],
+    ['2', 'students daily'], ['7.0', 'IELTS'], ['Sydney', 'since 2026'], ['Python', 'and Java'],
+  ];
+  let cells = [];
+  function build() {
+    comb.innerHTML = '';
+    cells = [];
+    const W = comb.clientWidth, H = comb.clientHeight;
+    const small = W < 420;
+    const cw = small ? 44 : 62, ch = cw * 1.1547, dx = cw + 4, dy = ch * 0.75 + 3;
+    comb.style.setProperty('--cw', cw + 'px');
+    comb.style.setProperty('--ch', ch + 'px');
+    const cols = Math.ceil(W / dx) + 1, rows = Math.ceil(H / dy) + 1;
+    const cx = W / 2, cy = H / 2, hole = small ? 110 : 150;
+    const candidates = [];
+    for (let r = 0; r < rows; r++) {
+      for (let c = 0; c < cols; c++) {
+        const x = c * dx + (r % 2 ? dx / 2 : 0) - cw / 2, y = r * dy - ch / 2;
+        const d = Math.hypot(x + cw / 2 - cx, y + ch / 2 - cy);
+        if (d < hole) continue; // leave room for the portrait
+        const el = document.createElement('div');
+        el.className = 'cell';
+        el.style.left = x + 'px'; el.style.top = y + 'px';
+        comb.appendChild(el);
+        cells.push({ el, x: x + cw / 2, y: y + ch / 2 });
+        const m = small ? 26 : 12; if (d > hole + 20 && x > m && x + cw < W - m && y > m && y + ch < H - m) candidates.push(cells.length - 1);
+      }
+    }
+    // spread the fact cells out
+    const picks = [];
+    const want = Math.min(small ? 5 : FACTS.length, candidates.length);
+    for (let i = 0; i < want; i++) picks.push(candidates[Math.round(i * (candidates.length - 1) / Math.max(1, want - 1))]);
+    picks.forEach((idx, i) => {
+      const { el } = cells[idx];
+      el.classList.add('fact');
+      el.innerHTML = '<span><strong></strong></span>';
+      el.querySelector('strong').textContent = FACTS[i][0];
+      if (!small) el.querySelector('span').appendChild(document.createTextNode(FACTS[i][1]));
+      else el.title = FACTS[i][0] + ' ' + FACTS[i][1];
+    });
+  }
+  build();
+  let rb; window.addEventListener('resize', () => { clearTimeout(rb); rb = setTimeout(build, 150); });
+
+  const hero = comb.closest('.hero');
+  let mx = -9999, my = -9999, raf = false;
+  function paint() {
+    raf = false;
+    const rect = comb.getBoundingClientRect();
+    const px = mx - rect.left, py = my - rect.top;
+    for (const c of cells) {
+      const d = Math.hypot(c.x - px, c.y - py);
+      const g = d < 150 ? 1 - d / 150 : 0;
+      c.el.style.setProperty('--glow', g.toFixed(2));
+    }
+  }
+  function onMove(e) { mx = e.clientX; my = e.clientY; if (!raf) { raf = true; requestAnimationFrame(paint); } }
+  hero.addEventListener('pointermove', onMove);
+  hero.addEventListener('pointerleave', () => { mx = my = -9999; if (!raf) { raf = true; requestAnimationFrame(paint); } });
+  // Touch: tapping a fact cell lights it briefly
+  comb.addEventListener('click', (e) => {
+    const cell = e.target.closest('.cell');
+    if (!cell) return;
+    cell.style.setProperty('--glow', '1');
+    setTimeout(() => cell.style.setProperty('--glow', '0'), 900);
+  });
+})();
+
+// The hero bee follows the cursor on pointer devices (and wanders when you stop moving).
+(function () {
+  const bee = document.getElementById('flyer');
+  const hero = bee && bee.closest('.hero');
+  if (!bee || !hero) return;
+  const fine = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (!fine || reduce) return; // keep the CSS flight path on touch devices
+  bee.classList.add('follow');
+  let tx = 120, ty = 60, x = tx, y = ty, lastMove = 0, inside = false;
+  hero.addEventListener('pointermove', (e) => {
+    const r = hero.getBoundingClientRect();
+    tx = e.clientX - r.left + 36; ty = e.clientY - r.top - 44; lastMove = performance.now(); inside = true;
+  });
+  hero.addEventListener('pointerleave', () => { inside = false; });
+  function tick(t) {
+    if (!inside || t - lastMove > 2200) { // wander
+      const r = hero.getBoundingClientRect();
+      tx = r.width * 0.5 + Math.sin(t / 2100) * r.width * 0.42;
+      ty = 70 + Math.cos(t / 1700) * 50 + Math.sin(t / 900) * 12;
+    }
+    x += (tx - x) * 0.07; y += (ty - y) * 0.07;
+    const dir = tx - x > 0 ? 1 : -1;
+    const tilt = Math.max(-18, Math.min(18, (tx - x) * 0.15));
+    bee.style.transform = `translate(${x.toFixed(1)}px, ${y.toFixed(1)}px) rotate(${tilt.toFixed(1)}deg) scaleX(${dir})`;
+    requestAnimationFrame(tick);
+  }
+  requestAnimationFrame(tick);
+})();
+
+// Contact bee: poke it.
+(function () {
+  const b = document.getElementById('band-bee');
+  if (!b) return;
+  const lines = ['Bzzz!', 'Careful, I\'m working.', 'That tickles.', 'Message Gia, not me.'];
+  let n = 0;
+  b.addEventListener('click', () => {
+    b.classList.remove('wobble'); void b.offsetWidth; b.classList.add('wobble');
+    let tip = document.getElementById('bee-tip');
+    if (!tip) { tip = document.createElement('div'); tip.id = 'bee-tip'; tip.className = 'msg bot'; tip.style.cssText = 'position:absolute;top:-92px;right:0;max-width:200px;z-index:2;'; b.parentElement.appendChild(tip); }
+    tip.textContent = lines[n++ % lines.length];
+    clearTimeout(tip._t); tip._t = setTimeout(() => tip.remove(), 1800);
+  });
 })();
 
 // Page effects: scroll progress, reveal-on-scroll, counting stats, active nav.

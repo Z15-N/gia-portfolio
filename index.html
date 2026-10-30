@@ -71,15 +71,15 @@
         </div>
         <p class="hint" id="hint">
           <svg class="ic" aria-hidden="true"><use href="#i-bulb"/></svg>
-          <span>Hint: the bee in the corner knows this page better than I do. Click it and try <strong>"quiz me"</strong>.</span>
+          <span>Hint: the bee knows this page better than I do. Click it (or the one in the corner) and try <strong>"quiz me"</strong>. The honeycomb hides a few facts too.</span>
         </p>
       </div>
       <div class="hero-art" aria-hidden="true">
+        <div class="comb" id="comb"></div>
         <div class="avatar no-photo" id="avatar">
           <!-- When assets/photo.jpg exists, replace the line below with: <img src="assets/photo.jpg" alt=""> and remove class="no-photo" from the div above. -->
           <span class="initials">GB</span>
         </div>
-        <div class="orbit"></div>
       </div>
     </section>
 
@@ -89,6 +89,11 @@
       <div><strong data-count="615">0</strong><span>blocks in the first Buzz</span></div>
       <div><strong data-count="2">0</strong><span>students tutored every day</span></div>
     </section>
+
+    <div class="marquee" aria-hidden="true"><div class="track">
+      <span>Maths</span><span>Python</span><span>Java</span><span>Claude Code</span><span>NSW syllabus</span><span>AMC coaching</span><span>KNIME</span><span>HTML, CSS, JS</span><span>Battlecode</span><span>AWS Amplify</span><span>Vietnamese</span><span>English</span>
+      <span>Maths</span><span>Python</span><span>Java</span><span>Claude Code</span><span>NSW syllabus</span><span>AMC coaching</span><span>KNIME</span><span>HTML, CSS, JS</span><span>Battlecode</span><span>AWS Amplify</span><span>Vietnamese</span><span>English</span>
+    </div></div>
 
     <section id="about" class="block">
       <div class="about-grid">
@@ -154,72 +159,64 @@
     <section id="projects" class="block">
       <div class="sec-head reveal">
         <h2>Projects and achievements</h2>
-        <p class="sub">Newest first. Links open in a new tab.</p>
+        <p class="sub">Newest first. The big one has screenshots.</p>
       </div>
-      <ol class="index">
-        <li class="reveal">
-          <span class="when">Oct 2026</span>
-          <svg class="ic" aria-hidden="true"><use href="#i-bot"/></svg>
-          <div>
-            <h3>Buzz the Bee chatbot <span class="tag">mBlock, 615 blocks</span></h3>
-            <p>A block-coded chatbot that remembers your name, tells jokes, runs a maths quiz, does arithmetic and can be taught new answers that it stores between sessions. Published on mBlock Planet. The bee on this page is its JavaScript cousin.</p>
+      <ol class="projects">
+        <li class="reveal feature">
+          <div class="shot"><img src="assets/buzz-ide.jpg" alt="Buzz the Bee running in the mBlock editor, mid-conversation" loading="lazy"></div>
+          <div class="body">
+            <span class="when">Oct 2026</span>
+            <h3>Buzz the Bee chatbot</h3>
+            <p>A block-coded chatbot that remembers your name, tells jokes, runs a maths quiz, does arithmetic and can be taught new answers that it stores between sessions. 615 blocks in mBlock, published on mBlock Planet. The bee on this page is its JavaScript cousin.</p>
+            <div class="thumbs">
+              <img src="assets/buzz-quiz.png" alt="Buzz marking a quiz answer correct" loading="lazy">
+              <img src="assets/buzz-learned.png" alt="Buzz replying with an answer it was taught earlier" loading="lazy">
+            </div>
             <a href="https://planet.mblock.cc/project/8647787" target="_blank" rel="noopener">Open on mBlock Planet<svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a>
           </div>
         </li>
         <li class="reveal">
-          <span class="when">Oct 2026</span>
-          <svg class="ic" aria-hidden="true"><use href="#i-swords"/></svg>
-          <div>
-            <h3>UNSW Battlecode 2026 <span class="tag">team of three</span></h3>
-            <p>Wrote and tuned a tournament bot with my team. Every change had to win hundreds of self-play games and pass a statistical test before it shipped, because small samples kept lying to us. I learned more about experiments there than in any class so far.</p>
-          </div>
+          <div class="head"><svg class="ic" aria-hidden="true"><use href="#i-swords"/></svg><span class="when">Oct 2026</span></div>
+          <h3>UNSW Battlecode 2026</h3>
+          <p>Wrote and tuned a tournament bot with a team of three. Every change had to win hundreds of self-play games and pass a statistical test before it shipped, because small samples kept lying to us.</p>
         </li>
         <li class="reveal">
-          <span class="when">Now</span>
-          <svg class="ic" aria-hidden="true"><use href="#i-swords"/></svg>
-          <div>
-            <h3>Cambridge Battlecode <span class="tag">in progress</span></h3>
-            <p>Currently competing. Same test-before-you-trust-it workflow, new game.</p>
-          </div>
+          <div class="head"><svg class="ic" aria-hidden="true"><use href="#i-swords"/></svg><span class="when">Now</span></div>
+          <h3>Cambridge Battlecode</h3>
+          <p>Currently competing. Same test-before-you-trust-it workflow, new game.</p>
         </li>
         <li class="reveal">
-          <span class="when">2026</span>
-          <svg class="ic" aria-hidden="true"><use href="#i-plane"/></svg>
-          <div>
-            <h3>Flight-delay prediction <span class="tag">KNIME, Kaggle data</span></h3>
-            <p>A route-and-schedule model for arrival delays that scored 0.87 against a target of 0.85 after five iterations.</p>
-          </div>
+          <div class="head"><svg class="ic" aria-hidden="true"><use href="#i-plane"/></svg><span class="when">2026</span></div>
+          <h3>Flight-delay prediction</h3>
+          <p>A route-and-schedule model for arrival delays in KNIME, built on Kaggle data, that scored 0.87 against a target of 0.85 after five iterations.</p>
         </li>
         <li class="reveal">
-          <span class="when">2025 to 2026</span>
-          <svg class="ic" aria-hidden="true"><use href="#i-trophy"/></svg>
-          <div>
-            <h3>Two AMC first prizes, coached <span class="tag">tutoring</span></h3>
-            <p>Took a Year 7 student from stuck to solving unseen problems unaided: two first prizes in the Australian Mathematics Competition and a selective-entry place at North Sydney Boys High School.</p>
-          </div>
+          <div class="head"><svg class="ic" aria-hidden="true"><use href="#i-trophy"/></svg><span class="when">2025 to 2026</span></div>
+          <h3>Two AMC first prizes, coached</h3>
+          <p>Took a Year 7 student from stuck to solving unseen problems unaided: two first prizes in the Australian Mathematics Competition and a selective-entry place at North Sydney Boys High School.</p>
         </li>
         <li class="reveal">
-          <span class="when">2026</span>
-          <svg class="ic" aria-hidden="true"><use href="#i-trend"/></svg>
-          <div>
-            <h3>AIESEC in UTS, Most Improved Member <span class="tag">certificate</span></h3>
-            <p>Certificate from AIESEC in UTS for growth as a marketing team member. Our team's Instagram campaign sold out the "Show Up: Headstart Mentoring" venue.</p>
-          </div>
+          <div class="head"><svg class="ic" aria-hidden="true"><use href="#i-trend"/></svg><span class="when">2026</span></div>
+          <h3>AIESEC in UTS, Most Improved Member</h3>
+          <p>Certificate for growth as a marketing team member. Our team's Instagram campaign sold out the "Show Up: Headstart Mentoring" venue.</p>
         </li>
         <li class="reveal">
-          <span class="when">Nov 2026</span>
-          <svg class="ic" aria-hidden="true"><use href="#i-cloud"/></svg>
-          <div>
-            <h3>This website <span class="tag">AWS Amplify, Claude Code</span></h3>
-            <p>Static HTML, CSS and JavaScript, hosted on AWS Amplify Hosting. Built for the AWS Student Builder Challenge.</p>
-            <a id="repo-link" href="#" target="_blank" rel="noopener">Source on GitHub<svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a>
-          </div>
+          <div class="head"><svg class="ic" aria-hidden="true"><use href="#i-cloud"/></svg><span class="when">Nov 2026</span></div>
+          <h3>This website</h3>
+          <p>Static HTML, CSS and JavaScript on AWS Amplify Hosting, built with Claude Code for the AWS Student Builder Challenge.</p>
+          <a id="repo-link" href="#" target="_blank" rel="noopener">Source on GitHub<svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a>
         </li>
       </ol>
     </section>
 
+    <div class="marquee reverse" aria-hidden="true"><div class="track">
+      <span>Maths</span><span>Python</span><span>Java</span><span>Claude Code</span><span>NSW syllabus</span><span>AMC coaching</span><span>KNIME</span><span>HTML, CSS, JS</span><span>Battlecode</span><span>AWS Amplify</span><span>Vietnamese</span><span>English</span>
+      <span>Maths</span><span>Python</span><span>Java</span><span>Claude Code</span><span>NSW syllabus</span><span>AMC coaching</span><span>KNIME</span><span>HTML, CSS, JS</span><span>Battlecode</span><span>AWS Amplify</span><span>Vietnamese</span><span>English</span>
+    </div></div>
+
     <section id="contact" class="block band">
       <div class="band-inner reveal">
+        <button class="band-bee" id="band-bee" type="button" aria-label="Poke the bee"><svg aria-hidden="true"><use href="#bee"/></svg></button>
         <div>
           <h2>Let's talk</h2>
           <p>The quickest way to reach me is LinkedIn. I'm in Sydney, available part-time, and happy to talk about tutoring, student roles or anything with maths in it.</p>
