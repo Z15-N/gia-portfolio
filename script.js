@@ -229,8 +229,8 @@
   const comb = document.getElementById('comb');
   if (!comb) return;
   const FACTS = [
-    ['790', 'SAT Math'], ['2', 'AMC firsts coached'], ['UTS', 'Bachelor of AI'], ['615', 'blocks in Buzz'],
-    ['2', 'students daily'], ['7.0', 'IELTS'], ['Sydney', 'since 2026'], ['Python', 'and Java'],
+    ['790', 'SAT Math'], ['2', 'AMC firsts'], ['UTS', 'AI degree'], ['615', 'Buzz blocks'],
+    ['2', 'tutees daily'], ['7.0', 'IELTS'], ['SYD', 'since 2026'], ['Py', '+ Java'],
   ];
   let cells = [];
   function build() {
@@ -249,6 +249,8 @@
     const art = document.querySelector('.hero-art').getBoundingClientRect();
     const cx = av.left + av.width / 2 - cr.left, cy = av.top + av.height / 2 - cr.top, hole = av.width * 0.62;
     const ax0 = art.left - cr.left, ax1 = art.right - cr.left, ay0 = art.top - cr.top, ay1 = art.bottom - cr.top;
+    const txt = document.querySelector('.hero-text').getBoundingClientRect();
+    const tx0 = txt.left - cr.left - 24, tx1 = txt.right - cr.left + 24, ty0 = txt.top - cr.top - 24, ty1 = txt.bottom - cr.top + 24;
     const candidates = [];
     for (let r = 0; r < rows; r++) {
       for (let c = 0; c < cols; c++) {
@@ -259,7 +261,10 @@
         el.className = 'cell';
         el.style.left = x + 'px'; el.style.top = y + 'px';
         comb.appendChild(el);
-        cells.push({ el, x: x + cw / 2, y: y + ch / 2 });
+        // cells under the headline block stay quiet so the text stays readable
+        const underText = x + cw > tx0 && x < tx1 && y + ch > ty0 && y < ty1;
+        if (underText) el.classList.add('dim');
+        cells.push({ el, x: x + cw / 2, y: y + ch / 2, dim: underText });
         // facts live only in the portrait's half, fully inside it, clear of the hole
         const m = small ? 26 : 4;
         if (d > hole + 2 && x > ax0 + m && x + cw < ax1 - m && y > ay0 + m && y + ch < ay1 - m) candidates.push(cells.length - 1);
@@ -288,6 +293,7 @@
     const rect = comb.getBoundingClientRect();
     const px = mx - rect.left, py = my - rect.top;
     for (const c of cells) {
+      if (c.dim) continue;
       const d = Math.hypot(c.x - px, c.y - py);
       const g = d < 150 ? 1 - d / 150 : 0;
       c.el.style.setProperty('--glow', g.toFixed(2));

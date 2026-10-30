@@ -9,12 +9,6 @@
   </defs>
   <rect width="240" height="272" fill="url(#bg)"/>
   <rect width="240" height="272" fill="url(#glow)"/>
-  <!-- faint honeycomb -->
-  <g fill="none" stroke="#2b2416" stroke-opacity=".08" stroke-width="2">
-    <path d="M40 30l20-12 20 12v24l-20 12-20-12zM120 30l20-12 20 12v24l-20 12-20-12zM200 30l20-12 20 12v24l-20 12-20-12z"/>
-    <path d="M0 90l20-12 20 12v24l-20 12-20-12zM80 90l20-12 20 12v24l-20 12-20-12zM160 90l20-12 20 12v24l-20 12-20-12z"/>
-    <path d="M40 210l20-12 20 12v24l-20 12-20-12zM200 210l20-12 20 12v24l-20 12-20-12z"/>
-  </g>
   <g transform="translate(120 150)">
     <!-- wings -->
     <g class="wing-l" style="transform-origin:-14px -34px">
