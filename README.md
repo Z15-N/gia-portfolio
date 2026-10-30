@@ -16,4 +16,4 @@ python3 -m http.server 8000
 ```
 
 ## Deploy (Amplify Hosting)
-Amplify console → *Deploy without Git* → upload a zip of this folder (`index.html` at the root), or connect this GitHub repo.
+Run `sh tools/package.sh` to build `../gia-portfolio-amplify.zip` (asset links get a version stamp so browsers never serve a stale file), then Amplify → gia-portfolio → main → Deploy updates → drop the zip.
