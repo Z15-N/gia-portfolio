@@ -247,7 +247,7 @@
     const cr = comb.getBoundingClientRect();
     const av = document.getElementById('avatar').getBoundingClientRect();
     const art = document.querySelector('.hero-art').getBoundingClientRect();
-    const cx = av.left + av.width / 2 - cr.left, cy = av.top + av.height / 2 - cr.top, hole = av.width * 0.62;
+    const cx = av.left + av.width / 2 - cr.left, cy = av.top + av.height / 2 - cr.top, hole = av.width * 0.72;
     const ax0 = art.left - cr.left, ax1 = art.right - cr.left, ay0 = art.top - cr.top, ay1 = art.bottom - cr.top;
     const txt = document.querySelector('.hero-text').getBoundingClientRect();
     const tx0 = txt.left - cr.left - 24, tx1 = txt.right - cr.left + 24, ty0 = txt.top - cr.top - 24, ty1 = txt.bottom - cr.top + 24;
