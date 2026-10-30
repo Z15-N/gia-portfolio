@@ -237,6 +237,7 @@
     comb.innerHTML = '';
     cells = [];
     const W = comb.clientWidth, H = comb.clientHeight;
+    const narrow = window.innerWidth < 760;
     const small = W < 420;
     const cw = small ? 44 : (W > 1500 ? 78 : 64), ch = cw * 1.1547, gap = small ? 3 : 4;
     // exact pointy-top tiling: horizontal pitch = width + gap, vertical pitch = 3/4 height + gap * cos(30deg)
@@ -266,13 +267,14 @@
         if (underText) el.classList.add('dim');
         cells.push({ el, x: x + cw / 2, y: y + ch / 2, dim: underText });
         // facts live only in the portrait's half, fully inside it, clear of the hole
-        const m = small ? 26 : 4;
-        if (d > hole + 2 && x > ax0 + m && x + cw < ax1 - m && y > ay0 + m && y + ch < ay1 - m) candidates.push(cells.length - 1);
+        // candidate if the cell's centre sits inside the portrait half (inset a little) and clear of the ring
+        const m = narrow ? 30 : 36, mx = x + cw / 2, my = y + ch / 2;
+        if (d > hole + 2 && mx > ax0 + m && mx < ax1 - m && my > ay0 + m && my < ay1 - m) candidates.push(cells.length - 1);
       }
     }
     // spread the fact cells out
     const picks = [];
-    const want = Math.min(small ? 5 : FACTS.length, candidates.length);
+    const want = Math.min(narrow ? 4 : FACTS.length, candidates.length);
     for (let i = 0; i < want; i++) picks.push(candidates[Math.round(i * (candidates.length - 1) / Math.max(1, want - 1))]);
     picks.forEach((idx, i) => {
       const { el } = cells[idx];
