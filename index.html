@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Gia Bach Nguyen</title>
+  <meta name="description" content="Gia Bach Nguyen: Bachelor of AI student at UTS, maths tutor, builder of small useful things.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cellipse cx='32' cy='36' rx='20' ry='15' fill='%23f6c21a' stroke='%232b2416' stroke-width='3'/%3E%3Cpath d='M22 23q4 13 0 26M32 21q4 15 0 30M42 23q4 13 0 26' stroke='%232b2416' stroke-width='5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <symbol id="bee" viewBox="0 0 64 64">
+        <g class="wing wing-l"><ellipse cx="22" cy="18" rx="12" ry="8" fill="#dff3ff" stroke="#6bb6e6" stroke-width="2" opacity=".9"/></g>
+        <g class="wing wing-r"><ellipse cx="40" cy="18" rx="12" ry="8" fill="#dff3ff" stroke="#6bb6e6" stroke-width="2" opacity=".9"/></g>
+        <ellipse cx="32" cy="36" rx="20" ry="15" fill="#f6c21a" stroke="#2b2416" stroke-width="2.5"/>
+        <path d="M22 23 q4 13 0 26 M32 21 q4 15 0 30 M42 23 q4 13 0 26" stroke="#2b2416" stroke-width="5" fill="none" stroke-linecap="round"/>
+        <circle cx="19" cy="31" r="2.6" fill="#2b2416"/>
+        <path d="M13 36 q3 3 6 0" stroke="#2b2416" stroke-width="2" fill="none" stroke-linecap="round"/>
+        <path d="M51 36 l6 1" stroke="#2b2416" stroke-width="3" stroke-linecap="round"/>
+        <path d="M24 22 q-3 -8 -8 -10 M30 20 q0 -8 -3 -11" stroke="#2b2416" stroke-width="2" fill="none" stroke-linecap="round"/>
+      </symbol>
+      <!-- 24px stroke icons, lucide style -->
+      <symbol id="i-cap" viewBox="0 0 24 24"><path d="M22 10 12 5 2 10l10 5 10-5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></symbol>
+      <symbol id="i-lang" viewBox="0 0 24 24"><path d="m5 8 6 6"/><path d="m4 14 6-6 2-3"/><path d="M2 5h12"/><path d="M7 2h1"/><path d="m22 22-5-10-5 10"/><path d="M14 18h6"/></symbol>
+      <symbol id="i-ruler" viewBox="0 0 24 24"><path d="M21.3 15.3a2.4 2.4 0 0 1 0 3.4l-2.6 2.6a2.4 2.4 0 0 1-3.4 0L2.7 8.7a2.4 2.4 0 0 1 0-3.4l2.6-2.6a2.4 2.4 0 0 1 3.4 0z"/><path d="m14.5 12.5 2-2"/><path d="m11.5 9.5 2-2"/><path d="m8.5 6.5 2-2"/><path d="m17.5 15.5 2-2"/></symbol>
+      <symbol id="i-users" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.9"/><path d="M16 3.1a4 4 0 0 1 0 7.8"/></symbol>
+      <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></symbol>
+      <symbol id="i-sigma" viewBox="0 0 24 24"><path d="M18 7V5H6l6 7-6 7h12v-2"/></symbol>
+      <symbol id="i-code" viewBox="0 0 24 24"><path d="m16 18 6-6-6-6"/><path d="m8 6-6 6 6 6"/></symbol>
+      <symbol id="i-sparkles" viewBox="0 0 24 24"><path d="M12 3 9.6 9.6 3 12l6.6 2.4L12 21l2.4-6.6L21 12l-6.6-2.4z"/><path d="M5 3v4"/><path d="M19 17v4"/><path d="M3 5h4"/><path d="M17 19h4"/></symbol>
+      <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></symbol>
+      <symbol id="i-chart" viewBox="0 0 24 24"><path d="M3 3v16a2 2 0 0 0 2 2h16"/><path d="m19 9-5 5-4-4-3 3"/></symbol>
+      <symbol id="i-chat" viewBox="0 0 24 24"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22z"/></symbol>
+      <symbol id="i-bot" viewBox="0 0 24 24"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/></symbol>
+      <symbol id="i-swords" viewBox="0 0 24 24"><path d="m14.5 17.5 3 3 3-3-3-3"/><path d="M3 3l11 11"/><path d="M21 3l-6 6"/><path d="M9.5 17.5l-3 3-3-3 3-3"/><path d="M14 10l-8 8"/></symbol>
+      <symbol id="i-plane" viewBox="0 0 24 24"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/></symbol>
+      <symbol id="i-trophy" viewBox="0 0 24 24"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.7V17c0 .6-.4 1-1 1.3-1 .4-2 1.5-2 3.7h10c0-2.2-1-3.3-2-3.7-.6-.3-1-.7-1-1.3v-2.3"/><path d="M18 2H6v7a6 6 0 0 0 12 0z"/></symbol>
+      <symbol id="i-trend" viewBox="0 0 24 24"><path d="m22 7-8.5 8.5-5-5L2 17"/><path d="M16 7h6v6"/></symbol>
+      <symbol id="i-cloud" viewBox="0 0 24 24"><path d="M17.5 19H9a7 7 0 1 1 6.7-9h1.8a4.5 4.5 0 1 1 0 9z"/></symbol>
+      <symbol id="i-bulb" viewBox="0 0 24 24"><path d="M15 14c.2-1 .7-1.7 1.5-2.5A6 6 0 1 0 7 11.5c.8.8 1.3 1.5 1.5 2.5"/><path d="M9 18h6"/><path d="M10 22h4"/></symbol>
+      <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></symbol>
+      <symbol id="i-pin" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></symbol>
+    </defs>
+  </svg>
+
+  <div class="progress" id="progress" aria-hidden="true"></div>
+  <a class="skip" href="#about">Skip to content</a>
+
+  <header class="top">
+    <a class="brand" href="#top"><svg class="brand-bee" aria-hidden="true"><use href="#bee"/></svg><span>Gia Bach Nguyen</span></a>
+    <nav aria-label="Main">
+      <a href="#about">About</a>
+      <a href="#skills">Superpowers</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <svg class="flyer" id="flyer" aria-hidden="true"><use href="#bee"/></svg>
+      <div class="hero-text">
+        <p class="eyebrow"><svg class="ic" aria-hidden="true"><use href="#i-pin"/></svg>Sydney, Australia</p>
+        <h1>I make hard things <span class="hl">click</span>.</h1>
+        <p class="lead">Bachelor of Artificial Intelligence student at UTS and a maths tutor who coached a Year 7 student to two Australian Mathematics Competition first prizes. I build small, useful things and explain them simply.</p>
+        <div class="cta">
+          <a class="btn" href="#projects">See what I've built</a>
+          <a class="btn ghost" href="https://www.linkedin.com/in/gia-bach-nguyen-737049423/" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+        <p class="hint" id="hint">
+          <svg class="ic" aria-hidden="true"><use href="#i-bulb"/></svg>
+          <span>Hint: the bee in the corner knows this page better than I do. Click it and try <strong>"quiz me"</strong>.</span>
+        </p>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <div class="avatar no-photo" id="avatar">
+          <!-- When assets/photo.jpg exists, replace the line below with: <img src="assets/photo.jpg" alt=""> and remove class="no-photo" from the div above. -->
+          <span class="initials">GB</span>
+        </div>
+        <div class="orbit"></div>
+      </div>
+    </section>
+
+    <section class="stats" aria-label="Quick numbers">
+      <div><strong data-count="790">0</strong><span>SAT Math, out of 800</span></div>
+      <div><strong data-count="2">0</strong><span>AMC first prizes coached</span></div>
+      <div><strong data-count="615">0</strong><span>blocks in the first Buzz</span></div>
+      <div><strong data-count="2">0</strong><span>students tutored every day</span></div>
+    </section>
+
+    <section id="about" class="block">
+      <div class="about-grid">
+        <div class="about-head reveal">
+          <h2>About me</h2>
+          <p class="sub">From Ho Chi Minh City to Ultimo, by way of a lot of maths.</p>
+        </div>
+        <div class="prose reveal">
+          <p>I grew up in Ho Chi Minh City and moved to Sydney in 2026 to study Artificial Intelligence at the University of Technology Sydney. First year is mostly the maths underneath AI: statistics, linear algebra and algorithmic problem-solving. That suits me, because maths is the thing I've always been best at.</p>
+          <p>Outside class I tutor two students every day, one in Year 1 and one in Year 7. Before Sydney I worked front of house in a busy restaurant and on the register at a convenience store, which taught me to stay calm when twelve things happen at once.</p>
+          <p>On campus I'm on the marketing team at AIESEC in UTS, where our Instagram push sold out a mentoring event, and I was selected for the UTS Consulting Society's Aspiring Consultant Program.</p>
+        </div>
+        <dl class="facts reveal">
+          <div><svg class="ic" aria-hidden="true"><use href="#i-cap"/></svg><dt>Studying</dt><dd>Bachelor of AI, UTS, since 2026</dd></div>
+          <div><svg class="ic" aria-hidden="true"><use href="#i-lang"/></svg><dt>Languages</dt><dd>Vietnamese (native), English (IELTS 7.0)</dd></div>
+          <div><svg class="ic" aria-hidden="true"><use href="#i-ruler"/></svg><dt>Tutoring</dt><dd>Two students, daily, NSW syllabus</dd></div>
+          <div><svg class="ic" aria-hidden="true"><use href="#i-users"/></svg><dt>Clubs</dt><dd>AIESEC in UTS, UTS Consulting Society</dd></div>
+          <div><svg class="ic" aria-hidden="true"><use href="#i-search"/></svg><dt>Looking for</dt><dd>Part-time tutoring and junior tech work in Sydney</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <section id="skills" class="block alt honey">
+      <div class="sec-head reveal">
+        <h2>Tech superpowers</h2>
+        <p class="sub">One thing I'm genuinely good at, and five I'm building on top of it.</p>
+      </div>
+      <ul class="bento">
+        <li class="lead-tile reveal">
+          <div class="icon"><svg aria-hidden="true"><use href="#i-sigma"/></svg></div>
+          <h3>Mathematics</h3>
+          <p>SAT Math 790 out of 800. Competition coaching that produced two AMC first prizes and a selective-school place. I find the exact step where someone gets stuck and rebuild from there, which is also how I debug.</p>
+          <ul class="chips"><li>NSW syllabus</li><li>Competition prep</li><li>Statistics</li><li>Linear algebra</li></ul>
+        </li>
+        <li class="reveal">
+          <div class="icon"><svg aria-hidden="true"><use href="#i-code"/></svg></div>
+          <h3>Python and Java</h3>
+          <p>Foundations from first-year AI subjects, plus practice writing and testing game bots for Battlecode tournaments.</p>
+        </li>
+        <li class="reveal">
+          <div class="icon"><svg aria-hidden="true"><use href="#i-sparkles"/></svg></div>
+          <h3>AI-assisted building</h3>
+          <p>I build with Claude Code as a pair programmer: I describe the goal and the tests, it drafts, I check and steer. This site was made that way.</p>
+        </li>
+        <li class="reveal">
+          <div class="icon"><svg aria-hidden="true"><use href="#i-globe"/></svg></div>
+          <h3>Web basics</h3>
+          <p>HTML, CSS and plain JavaScript. Enough to ship a static site on AWS Amplify and keep it readable on a phone.</p>
+        </li>
+        <li class="reveal">
+          <div class="icon"><svg aria-hidden="true"><use href="#i-chart"/></svg></div>
+          <h3>Data workflows</h3>
+          <p>A flight-delay prediction pipeline in KNIME that beat the project's accuracy target on a Kaggle dataset.</p>
+        </li>
+        <li class="reveal">
+          <div class="icon"><svg aria-hidden="true"><use href="#i-chat"/></svg></div>
+          <h3>Explaining things</h3>
+          <p>The same idea rebuilt from scratch for a six-year-old and a twelve-year-old in one afternoon. Clear, patient, no jargon.</p>
+        </li>
+      </ul>
+    </section>
+
+    <section id="projects" class="block">
+      <div class="sec-head reveal">
+        <h2>Projects and achievements</h2>
+        <p class="sub">Newest first. Links open in a new tab.</p>
+      </div>
+      <ol class="index">
+        <li class="reveal">
+          <span class="when">Oct 2026</span>
+          <svg class="ic" aria-hidden="true"><use href="#i-bot"/></svg>
+          <div>
+            <h3>Buzz the Bee chatbot <span class="tag">mBlock, 615 blocks</span></h3>
+            <p>A block-coded chatbot that remembers your name, tells jokes, runs a maths quiz, does arithmetic and can be taught new answers that it stores between sessions. Published on mBlock Planet. The bee on this page is its JavaScript cousin.</p>
+            <a href="https://planet.mblock.cc/project/8647787" target="_blank" rel="noopener">Open on mBlock Planet<svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          </div>
+        </li>
+        <li class="reveal">
+          <span class="when">Oct 2026</span>
+          <svg class="ic" aria-hidden="true"><use href="#i-swords"/></svg>
+          <div>
+            <h3>UNSW Battlecode 2026 <span class="tag">team of three</span></h3>
+            <p>Wrote and tuned a tournament bot with my team. Every change had to win hundreds of self-play games and pass a statistical test before it shipped, because small samples kept lying to us. I learned more about experiments there than in any class so far.</p>
+          </div>
+        </li>
+        <li class="reveal">
+          <span class="when">Now</span>
+          <svg class="ic" aria-hidden="true"><use href="#i-swords"/></svg>
+          <div>
+            <h3>Cambridge Battlecode <span class="tag">in progress</span></h3>
+            <p>Currently competing. Same test-before-you-trust-it workflow, new game.</p>
+          </div>
+        </li>
+        <li class="reveal">
+          <span class="when">2026</span>
+          <svg class="ic" aria-hidden="true"><use href="#i-plane"/></svg>
+          <div>
+            <h3>Flight-delay prediction <span class="tag">KNIME, Kaggle data</span></h3>
+            <p>A route-and-schedule model for arrival delays that scored 0.87 against a target of 0.85 after five iterations.</p>
+          </div>
+        </li>
+        <li class="reveal">
+          <span class="when">2025 to 2026</span>
+          <svg class="ic" aria-hidden="true"><use href="#i-trophy"/></svg>
+          <div>
+            <h3>Two AMC first prizes, coached <span class="tag">tutoring</span></h3>
+            <p>Took a Year 7 student from stuck to solving unseen problems unaided: two first prizes in the Australian Mathematics Competition and a selective-entry place at North Sydney Boys High School.</p>
+          </div>
+        </li>
+        <li class="reveal">
+          <span class="when">2026</span>
+          <svg class="ic" aria-hidden="true"><use href="#i-trend"/></svg>
+          <div>
+            <h3>AIESEC in UTS, Most Improved Member <span class="tag">certificate</span></h3>
+            <p>Certificate from AIESEC in UTS for growth as a marketing team member. Our team's Instagram campaign sold out the "Show Up: Headstart Mentoring" venue.</p>
+          </div>
+        </li>
+        <li class="reveal">
+          <span class="when">Nov 2026</span>
+          <svg class="ic" aria-hidden="true"><use href="#i-cloud"/></svg>
+          <div>
+            <h3>This website <span class="tag">AWS Amplify, Claude Code</span></h3>
+            <p>Static HTML, CSS and JavaScript, hosted on AWS Amplify Hosting. Built for the AWS Student Builder Challenge.</p>
+            <a id="repo-link" href="#" target="_blank" rel="noopener">Source on GitHub<svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          </div>
+        </li>
+      </ol>
+    </section>
+
+    <section id="contact" class="block band">
+      <div class="band-inner reveal">
+        <div>
+          <h2>Let's talk</h2>
+          <p>The quickest way to reach me is LinkedIn. I'm in Sydney, available part-time, and happy to talk about tutoring, student roles or anything with maths in it.</p>
+        </div>
+        <a class="btn" href="https://www.linkedin.com/in/gia-bach-nguyen-737049423/" target="_blank" rel="noopener">Message me on LinkedIn</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>2026 Gia Bach Nguyen. Hosted on AWS Amplify. Built with Claude Code.</p>
+  </footer>
+
+  <!-- Buzz: the interactive feature -->
+  <button class="buzz-fab" id="buzz-fab" aria-label="Chat with Buzz the bee" aria-expanded="false">
+    <svg aria-hidden="true"><use href="#bee"/></svg>
+  </button>
+  <section class="buzz-panel" id="buzz-panel" role="dialog" aria-label="Buzz chatbot" hidden>
+    <header>
+      <span><svg class="hdr-bee" aria-hidden="true"><use href="#bee"/></svg> Buzz</span>
+      <button id="buzz-close" aria-label="Close chat">×</button>
+    </header>
+    <div class="buzz-log" id="buzz-log" aria-live="polite"></div>
+    <div class="buzz-chips" id="buzz-chips">
+      <button type="button" data-say="what did Gia build?">projects</button>
+      <button type="button" data-say="quiz me">quiz me</button>
+      <button type="button" data-say="tell me a joke">joke</button>
+      <button type="button" data-say="help">help</button>
+    </div>
+    <form class="buzz-form" id="buzz-form" autocomplete="off">
+      <input id="buzz-input" type="text" placeholder="Ask about Gia, or type 'help'" aria-label="Message Buzz" maxlength="120">
+      <button type="submit">Send</button>
+    </form>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>
