@@ -1,7 +1,7 @@
 # Submission write-up (draft) — AWS Student Builder Challenge
 
 **Live URL:** https://main.dieyl2q306xr5.amplifyapp.com
-**GitHub:** (paste repo URL)
+**GitHub:** https://github.com/Z15-N/gia-portfolio
 
 ## What I built
 A one-page portfolio: About Me, Tech Superpowers (skills), Projects & Achievements, Contact. Plain HTML, CSS and

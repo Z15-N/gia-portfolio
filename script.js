@@ -8,7 +8,7 @@
   const input = document.getElementById('buzz-input');
 
   // Fill in the repo link once the site is on GitHub.
-  const REPO_URL = 'https://github.com/';
+  const REPO_URL = 'https://github.com/Z15-N/gia-portfolio';
   const repoLink = document.getElementById('repo-link');
   if (repoLink) repoLink.href = REPO_URL;
 
