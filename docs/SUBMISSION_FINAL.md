@@ -62,4 +62,3 @@ had only made with blocks. The project section shows screenshots of the original
 ## Before you paste
 - Upload the latest zip with Deploy updates, then open the live URL and check the bee flies across the top.
 - Take screenshots 5 and 6 and attach them.
-- Confirm the Battlecode, Cambridge Battlecode and 0.87 figures on the site are exactly right.
