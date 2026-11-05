@@ -57,6 +57,7 @@ a { color: inherit; }
 .top nav a:hover, .top nav a:focus-visible, .top nav a.active { background: var(--accent-soft); color: var(--text); }
 
 main { max-width: var(--max); margin: 0 auto; padding: 0 20px; }
+section[id] { scroll-margin-top: 76px; }
 
 /* Hero: asymmetric 7/5 */
 .hero { position: relative; overflow: clip; display: grid; grid-template-columns: 7fr 5fr; gap: 40px; align-items: center;

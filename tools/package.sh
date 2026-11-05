@@ -5,6 +5,7 @@ cd "$(dirname "$0")/.."
 V=$(date +%Y%m%d%H%M)
 rm -rf build && mkdir -p build/assets
 sed -E -e "s#styles\.css\"#styles.css?v=$V\"#" -e "s#script\.js\"#script.js?v=$V\"#" -e "s#(assets/[a-z0-9-]+\.(svg|jpg|png))#\1?v=$V#g" index.html > build/index.html
+sed -i "" "s#<span id=\"built\">[^<]*</span>#<span id=\"built\">Updated $(date +"%B %Y").</span>#" build/index.html
 cp styles.css script.js build/
 cp assets/*.svg assets/*.jpg assets/*.png build/assets/
 rm -f ../gia-portfolio-amplify.zip
