@@ -323,16 +323,26 @@
   if (!fine || reduce) return; // keep the CSS flight path on touch devices
   bee.classList.add('follow');
   let tx = 120, ty = 60, x = tx, y = ty, lastMove = 0, inside = false;
+  const text = hero.querySelector('.hero-text');
+  // the bee never parks over the headline block: targets inside it get pushed to its right edge
+  function keepOffText(px, py) {
+    const r = hero.getBoundingClientRect(), t = text.getBoundingClientRect();
+    const x0 = t.left - r.left - 10, x1 = t.right - r.left + 10, y0 = t.top - r.top - 10, y1 = t.bottom - r.top + 10;
+    if (px > x0 && px < x1 && py > y0 && py < y1) return [x1 + 8, py];
+    return [px, py];
+  }
   hero.addEventListener('pointermove', (e) => {
     const r = hero.getBoundingClientRect();
-    tx = e.clientX - r.left + 36; ty = e.clientY - r.top - 44; lastMove = performance.now(); inside = true;
+    [tx, ty] = keepOffText(e.clientX - r.left + 36, e.clientY - r.top - 44); lastMove = performance.now(); inside = true;
   });
   hero.addEventListener('pointerleave', () => { inside = false; });
   function tick(t) {
-    if (!inside || t - lastMove > 2200) { // wander
-      const r = hero.getBoundingClientRect();
-      tx = r.width * 0.5 + Math.sin(t / 2100) * r.width * 0.42;
-      ty = 70 + Math.cos(t / 1700) * 50 + Math.sin(t / 900) * 12;
+    if (!inside || t - lastMove > 2200) { // wander around the portrait half
+      const r = hero.getBoundingClientRect(), a = hero.querySelector('.hero-art').getBoundingClientRect();
+      const ax = a.left - r.left, aw = a.width, ay = a.top - r.top, ah = a.height;
+      tx = ax + aw * 0.5 + Math.sin(t / 2100) * aw * 0.48;
+      ty = ay + ah * 0.12 + Math.cos(t / 1700) * ah * 0.1 + Math.sin(t / 900) * 8;
+      [tx, ty] = keepOffText(tx, ty);
     }
     x += (tx - x) * 0.07; y += (ty - y) * 0.07;
     const dir = tx - x > 0 ? 1 : -1;
