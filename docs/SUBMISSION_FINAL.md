@@ -1,4 +1,6 @@
-# AWS Student Builder Challenge: entry text (ready to paste)
+# AWS Student Builder Challenge: entry text
+
+**Submitted 5 Nov 2026 22:36 AEDT.** Published entry: https://builder.aws.com/project/3LgYe0PG8NuDQBEAXzrnHuB47A8/gia-bach-nguyen-a-portfolio-with-a-bee-that-quizzes-you (Builder Center profile @benjaminnguyen). Confirmation: docs/submission-confirmation.jpg
 
 Live site: https://main.dieyl2q306xr5.amplifyapp.com
 GitHub: https://github.com/Z15-N/gia-portfolio
