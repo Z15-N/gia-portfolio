@@ -5,5 +5,5 @@
 - [x] T3 Add width/height to all `<img>` elements (measure the files).
 - [x] T4 Add `scroll-margin-top` for anchored sections in `styles.css`.
 - [x] T5 Footer `#built` span; `tools/package.sh` stamps the month.
-- [ ] T6 Browser check at 1800/1024/375, light and dark; nav anchor landing; Buzz smoke test.
-- [ ] T7 Merge to main, build zip, push.
+- [x] T6 Browser check at 1800/1024/375, light and dark; nav anchor landing; Buzz smoke test.
+- [x] T7 Merge to main, build zip, push.
